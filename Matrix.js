@@ -114,24 +114,23 @@ class Matrix{
 		return m1;
 	}
 	det(m1){
-		if(m1 != undefined && m1.rows == 1){
+		if(m1 != undefined && m1.nrows == 1){
 			return m1.data[0][0];
 		}else if(m1 != undefined && m1.nrows == 2){
 			let d = m1.data;
 			return d[0][0]*d[1][1] - d[0][1]*d[1][0];
-		}else if(this.nrows == 3){
+		}else if(m1 !== undefined){
 			let sum = 0;
-			for(let i = 0;i<this.ncols;i++){
-				let ad = this.Adjunta(0,i);
-				sum += this.getIndex(0,i) * this.data[0][i]*this.det(ad);
+			for(let i = 0;i<m1.nrows;i++){
+				let ad = m1.Adjunta(0,i);
+				sum += m1.getIndex(0,i) * m1.data[0][i] * m1.det(ad);
 			}
 			return sum;
 		}else{
 			let sum = 0;
-			console.log(m1);
-			for(let i = 0;i<m1.ncols;i++){
-				let ad = m1.Adjunta(0,i);
-				sum += m1.getIndex(0,i) * m1.data[0][i] * m1.det(ad);
+			for(let i = 0;i<this.ncols;i++){
+				let ad = this.Adjunta(0,i);
+				sum += this.getIndex(0,i) * this.data[0][i]*this.det(ad);
 			}
 			return sum;
 		}
@@ -155,3 +154,9 @@ class Matrix{
 module.exports = {
 	'Matrix':Matrix
 }
+
+
+var m = new Matrix(3,3);
+m.randomize(0,10,true);
+var det = m.det();
+//m.Adjunta(0,0).print();
