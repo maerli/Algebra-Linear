@@ -150,13 +150,17 @@ class Matrix{
 		}
 		return m;
 	}
+	solve(){
+		//retorna matriz inversa
+		//let m = new Matrix(this.nrows,this.ncols);
+		let det = this.det();
+		let ad = this.matrix_adjunta();
+		ad.map(x => x * 1/det);
+		return ad;
+	}
 }
 module.exports = {
 	'Matrix':Matrix
 }
 
 
-var m = new Matrix(3,3);
-m.randomize(0,10,true);
-var det = m.det();
-//m.Adjunta(0,0).print();
