@@ -1,13 +1,19 @@
 //Biblioteca para calculos de matrizes
 class Matrix{
 	constructor(nrows, ncols){
+	   if(nrows instanceof Array){
+	       this.nrows = nrows.length;
+	       this.ncols = nrows[0].length;
+	       this.data = nrows;
+	   }
+	
 		this.nrows = nrows;
 		this.ncols = ncols;
 		this.data = new Array(this.nrows);
 		for(let i = 0;i<this.nrows;i++){
 			this.data[i] = new Array(this.ncols);
-		}
 		this.init();
+		}
 	}
 	init(){
 		//iniciar matriz com valores 0
@@ -162,5 +168,3 @@ class Matrix{
 module.exports = {
 	'Matrix':Matrix
 }
-
-
