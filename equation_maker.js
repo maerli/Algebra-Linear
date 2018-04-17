@@ -49,9 +49,7 @@ class ArrayEquation{
 		}
 	}
 	apply(v){
-	   let m = new Matrix(this.m,1);
-	   
-	   let ap = this.matrix.mult(m);
+	   let ap = this.matrix.mult(v);
 	   return ap;
 	   
 	}

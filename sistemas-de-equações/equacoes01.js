@@ -18,3 +18,6 @@ let eqs = new ArrayEquation(coef,res);
 //console.log(eqs);
 let solve = eqs.solveAll();
 solve.print();
+
+let y = eqs.apply(solve):
+y.print();
