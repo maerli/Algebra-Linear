@@ -19,5 +19,5 @@ let eqs = new ArrayEquation(coef,res);
 let solve = eqs.solveAll();
 solve.print();
 
-let y = eqs.apply(solve):
+let y = eqs.apply(solve);
 y.print();
