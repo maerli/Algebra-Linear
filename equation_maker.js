@@ -1,9 +1,15 @@
 const Matrix = require('./Matrix').Matrix;
 class Equation{
-	constructor(n){
-		this.n = n;
-		this.cof = new Array(this.n);
-		this.result = 0;
+	constructor(n,m){
+	  if(n instanceof Array){
+	      this.n = n.length;
+	      this.cof = n;
+	      this.result = m;
+	  }else{
+		    this.n = n;
+		    this.cof = new Array(this.n);
+		    this.result = 0;
+		}
 	}
 	setEquation(v){
 		this.cof = v;
@@ -18,11 +24,22 @@ class Equation{
 }
 class ArrayEquation{
 	constructor(n,m){
-		this.n = n;
-		this.m = m;
-		this.equations = new Array(this.m);
-		for(let i = 0;i<this.m;i++){
-			this.equations[i] = new Equation(this.n);
+	if(n instanceof Array){
+	    this.n = n[0].length;
+	    this.m = n.length;
+	    this.equations = new Array(this.m);
+	    for(let i = 0;i<this.m;i++){
+	        let eq = new Equation(n[i]);
+	        eq.result = m[i];
+	        this.equations[i] = eq;
+	    }
+	}else{
+		    this.n = n;
+		    this.m = m;
+		    this.equations = new Array(this.m);
+	    	for(let i = 0;i<this.m;i++){
+			    this.equations[i] = new Equation(this.n);
+		    }
 		}
 	}
 	map(func1,func2){
