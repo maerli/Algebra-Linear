@@ -5,15 +5,16 @@ class Matrix{
 	       this.nrows = nrows.length;
 	       this.ncols = nrows[0].length;
 	       this.data = nrows;
-	   }
+	   }else{
 	
-		this.nrows = nrows;
-		this.ncols = ncols;
-		this.data = new Array(this.nrows);
-		for(let i = 0;i<this.nrows;i++){
-			this.data[i] = new Array(this.ncols);
-		this.init();
-		}
+	    	  this.nrows = nrows;
+         this.ncols = ncols;
+		    this.data = new Array(this.nrows);
+		    for(let i = 0;i<this.nrows;i++){
+			      this.data[i] = new Array(this.ncols);
+		    }
+		    this.init();
+		 }
 	}
 	init(){
 		//iniciar matriz com valores 0
