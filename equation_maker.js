@@ -25,6 +25,7 @@ class Equation{
 class ArrayEquation{
 	constructor(n,m){
 	if(n instanceof Array){
+	    this.matrix = new Matrix(n);
 	    this.n = n[0].length;
 	    this.m = n.length;
 	    this.equations = new Array(this.m);
@@ -46,6 +47,13 @@ class ArrayEquation{
 		for(let i = 0;i<this.m;i++){
 			this.equations[i].map(func1,func2);
 		}
+	}
+	apply(v){
+	   let m = new Matrix(this.m,1);
+	   
+	   let ap = this.matrix.mult(m);
+	   return ap;
+	   
 	}
 	randomize(a = 0,b = 1,is_int = false){
 		this.map(x => {

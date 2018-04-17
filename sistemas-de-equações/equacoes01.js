@@ -17,4 +17,4 @@ let res = [1,-2,2];
 let eqs = new ArrayEquation(coef,res);
 //console.log(eqs);
 let solve = eqs.solveAll();
-eqs.toString();
+solve.print();
